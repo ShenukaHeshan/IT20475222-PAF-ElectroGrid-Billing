@@ -105,6 +105,7 @@ $(document).on("click", "#btnRemove", function(event) {
 
 function onItemDeleteComplete(response, status) {
 	if (status == "success") {
+	console.log(response);
 		var resultSet = JSON.parse(response);
 		if (resultSet.status.trim() == "success") {
 			$("#alertSuccess").text("Successfully deleted.");

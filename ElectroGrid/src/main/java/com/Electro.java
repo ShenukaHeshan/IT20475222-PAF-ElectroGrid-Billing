@@ -45,12 +45,12 @@ public class Electro {
          con.close();
          
          String newItems = readBill();
-         output = "{\"status\":\"success\", \"data\": \"" + newItems + "\"}"; 
+         output = "{\"status\":\"success\", \"data\":\"" + newItems + "\"}"; 
 
-
+System.out.print(newItems);
          
       } catch (Exception e) {
-    	  output = "{\"status\":\"error\", \"data\": \"Error while inserting the item.\"}";
+    	  output = "{\"status\":\"error\", \"data\":\"Error while inserting the item.\"}";
     			  System.err.println(e.getMessage()); 
       }
 
@@ -67,15 +67,15 @@ public class Electro {
          }
 
       // Prepare the html table to be displayed
-         output = "<table border='1'><tr><th style=\"padding: 5px;\">User Name</th>"
-         		+ "<th style=\"display:none;\"></th>"
-         		+ "<th style=\"padding: 5px;\">User Category</th>"
-         		+ "<th style=\"padding: 5px;\">Number Of Units</th>"
-         		+ "<th style=\"padding: 5px;\">Charge for use </th>"
-         		+ "<th style=\"padding: 5px;\">Tax for usage</th>"
-         		+ "<th style=\"padding: 5px;\">Monthly Bill</th>"
-         		+ "<th style=\"padding: 5px;\">Update</th>"
-         		+ "<th style=\"padding: 5px;\">Remove</th></tr>";
+         output = "<table border='1'><tr><th style='padding: 5px;'>User Name</th>"
+         		+ "<th style='display:none;'></th>"
+         		+ "<th style='padding: 5px;'>User Category</th>"
+         		+ "<th style='padding: 5px;'>Number Of Units</th>"
+         		+ "<th style='padding: 5px;'>Charge for use </th>"
+         		+ "<th style='padding: 5px;'>Tax for usage</th>"
+         		+ "<th style='padding: 5px;'>Monthly Bill</th>"
+         		+ "<th style='padding: 5px;'>Update</th>"
+         		+ "<th style='padding: 5px;'>Remove</th></tr>";
          
          String query = "SELECT b.userID, b.userName, b.numberOfUnits, b.monthlyBill, b.tax, b.price, b.userCategory, c.categoryName FROM billing b, category c WHERE b.userCategory = c.categoryID";
          Statement stmt = con.createStatement();
@@ -95,18 +95,18 @@ public class Electro {
 	            
 	         // Add into the html table
 
-				output += "<tr><td style=\"padding: 5px;\"><input id='hidItemIDUpdate' name='hidItemIDUpdate' type='hidden' value='" + userID
+				output += "<tr><td style='padding: 5px;'><input id='hidItemIDUpdate' name='hidItemIDUpdate' type='hidden' value='" + userID
 						+ "'>" + userName + "</td>";
-				output += "<td style=\"display:none;\">" + userCategory + "</td>";
-				output += "<td style=\"padding: 5px;\">" + usercat + "</td>";
-				output += "<td style=\"padding: 5px;\">" + numberOfUnits + "</td>";
-				output += "<td style=\"padding: 5px;\">" + price + "</td>";
-				output += "<td style=\"padding: 5px;\">" + tax + "</td>";
-				output += "<td style=\"padding: 5px;\">" + monthlyBill + "</td>";
+				output += "<td style='display:none;'>" + userCategory + "</td>";
+				output += "<td style='padding: 5px;'>" + usercat + "</td>";
+				output += "<td style='padding: 5px;'>" + numberOfUnits + "</td>";
+				output += "<td style='padding: 5px;'>" + price + "</td>";
+				output += "<td style='padding: 5px;'>" + tax + "</td>";
+				output += "<td style='padding: 5px;'>" + monthlyBill + "</td>";
 // buttons
-				output += "<td style=\"padding: 5px;\"><input name='btnUpdate' type='button'  value='Update' "
+				output += "<td style='padding: 5px;'><input name='btnUpdate' type='button'  value='Update' "
 						+ "class='btn-sm btnUpdate btn btn-secondary' data-itemid='"+userID+ "'></td> "
-								+ "<td style=\"padding: 5px;\"><input id='btnRemove' type='button' value='Remove' "
+								+ "<td style='padding: 5px;'><input id='btnRemove' type='button' value='Remove' "
 								+ "class=' btn-sm btn btn-danger' data-itemid='"+userID+"'></td></tr>"; 
 			}    
 
