@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="model.Electro"%>
+    <%@page import="com.Electro"%>
     
 <!DOCTYPE html>
 <html>
@@ -59,8 +59,7 @@
 		</div>
 
 		<br>
-		<div class="row">
-			<div class="col-12" id="colStudents">
+			<div id="divItemsGrid">
 
      <%
     Electro itemObj = new Electro();
@@ -68,7 +67,6 @@
 %>
  
 			</div>
-		</div>
 
 		
 	</div>

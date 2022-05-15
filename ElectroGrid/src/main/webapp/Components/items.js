@@ -90,12 +90,12 @@ function onItemSaveComplete(response, status) {
 	$("#formItem")[0].reset();
 }
 
-$(document).on("click", ".btnRemove", function(event) {
+$(document).on("click", "#btnRemove", function(event) {
 	$.ajax(
 		{
 			url: "ElectroAPI",
 			type: "DELETE",
-			data: "itemID=" + $(this).data("itemid"),
+			data: "userID=" + $(this).data("itemid"),
 			dataType: "text",
 			complete: function(response, status) {
 				onItemDeleteComplete(response.responseText, status);

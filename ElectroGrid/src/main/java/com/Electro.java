@@ -1,5 +1,5 @@
 /* Decompiler 31ms, total 973ms, lines 181 */
-package model;
+package com;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -45,8 +45,7 @@ public class Electro {
          con.close();
          
          String newItems = readBill();
-         output = "{\"status\":\"success\", \"data\": \"" +
-         newItems + "\"}"; 
+         output = "{\"status\":\"success\", \"data\": \"" + newItems + "\"}"; 
 
 
          
@@ -107,7 +106,7 @@ public class Electro {
 // buttons
 				output += "<td style=\"padding: 5px;\"><input name='btnUpdate' type='button'  value='Update' "
 						+ "class='btn-sm btnUpdate btn btn-secondary' data-itemid='"+userID+ "'></td> "
-								+ "<td style=\"padding: 5px;\"><input name='btnRemove' type='button' value='Remove' "
+								+ "<td style=\"padding: 5px;\"><input id='btnRemove' type='button' value='Remove' "
 								+ "class=' btn-sm btn btn-danger' data-itemid='"+userID+"'></td></tr>"; 
 			}    
 
